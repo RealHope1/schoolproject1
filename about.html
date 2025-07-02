@@ -6,13 +6,14 @@
     <title>About Campus Navigator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style2.css">
+    <meta name="description" content="Learn about Campus Navigator - the ultimate guide for navigating university campuses">
 </head>
 <body class="min-h-screen flex flex-col font-inter bg-gray-100 antialiased">
     <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-3xl font-bold mb-2 md:mb-0 text-shadow-md">Campus Navigator</h1>
+            <h1 class="text-2xl md:text-3xl font-bold mb-2 md:mb-0">Campus Navigator</h1>
             <nav>
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 mt-2 md:mt-0">
                     <li><a href="index.html" class="hover:text-blue-200 transition duration-300 px-2 py-1 rounded hover:bg-white hover:bg-opacity-10">Home</a></li>
@@ -25,78 +26,81 @@
     
     <main class="flex-grow">
         <section class="prose mx-auto px-4 py-8 max-w-4xl text-center">
-            <p>Welcome to <strong>Campus Navigator</strong>, your essential guide to navigating our bustling university campus with ease. Designed with students, faculty, and visitors in mind, our application leverages the power of interactive mapping and intelligent routing to help you find your way around quickly and efficiently.</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">About Campus Navigator</h2>
+            <p class="text-gray-700">Welcome to <strong class="text-blue-600">Campus Navigator</strong>, your essential guide to navigating our bustling university campus with ease. Designed with students, faculty, and visitors in mind, our application leverages the power of interactive mapping and intelligent routing to help you find your way around quickly and efficiently.</p>
         </section>
 
         <section class="centerflipcards">
+            <!-- Feature Card -->
             <div class="square-flip">
-                <div class='square' style="background-image: url('Capture.PNG');">
+                <div class='square' style="background-image: url('images/campus-map.jpg');">
                     <div class="square-container">
-                        <div class="align-center"><img src="AW2.PNG" class="boxshadow" alt="Campus Navigation"></div>
+                        <div class="align-center"><img src="AW4.PNG" class="boxshadow" alt="Campus Navigation Icon" width="80"></div>
                         <h2 class="textshadow">Know More About Campus Navigation</h2>
                         <h3 class="textshadow">Easily find any campus location by name.</h3>
                     </div>
                     <div class="flip-overlay"></div>
                 </div>
                 
-                <div class='square2' style="background-image: url('Capture.PNG');">
+                <div class='square2' style="background-color: #4f46e5;">
                     <div class="square-container2">
-                        <div class="align-center"></div>
-                        <h2 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">Key Features</h2>
-                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-700">
-                            <li><strong>Interactive Campus Map:</strong> A dynamic map showing all key buildings, facilities, and points of interest.</li>
-                            <li><strong>Smart Search:</strong> Easily find any campus location by name.</li>
-                            <li><strong>Turn-by-Turn Directions:</strong> Get precise directions for walking, driving, or cycling between any two points on campus, powered by OSRM.</li>
-                            <li><strong>"My Location" Feature:</strong> Instantly pinpoint your current position on the map.</li>
-                            <li><strong>Quick Links:</strong> Fast access to popular campus destinations.</li>
-                            <li><strong>Responsive Design:</strong> Optimized for seamless use on any device, from smartphones to desktops.</li>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Key Features</h2>
+                        <ul class="list-disc list-inside space-y-2 pl-4 text-white text-left">
+                            <li><strong>Interactive Campus Map:</strong> Dynamic map showing all key buildings and facilities.</li>
+                            <li><strong>Smart Search:</strong> Find any campus location by name.</li>
+                            <li><strong>Turn-by-Turn Directions:</strong> Precise walking/driving directions.</li>
+                            <li><strong>"My Location" Feature:</strong> Instantly find your position.</li>
+                            <li><strong>Quick Links:</strong> Fast access to popular destinations.</li>
+                            <li><strong>Responsive Design:</strong> Works on any device.</li>
                         </ul>
                     </div>
                     <div class="flip-overlay"></div>
                 </div>
             </div>
 
+            <!-- Technology Card -->
             <div class="square-flip">
-                <div class='square' style="background-image: url('http://titanicthemes.com/files/flipbox/kallyas-bundle.png');">
+                <div class='square' style="background-image: url('images/tech-background.jpg');">
                     <div class="square-container">
-                        <div class="align-center"><img src="Capture.PNG" class="boxshadow" alt="Technology Stack"></div>
+                        <div class="align-center"><img src="AW2.PNG" class="boxshadow" alt="Technology Stack Icon" width="80"></div>
                         <h2 class="textshadow">Technology Stack</h2>
-                        <h3 class="textshadow">Campus Navigator is built using modern web technologies to ensure a smooth and robust user experience:</h3>
+                        <h3 class="textshadow">Built with modern web technologies for a smooth experience.</h3>
                     </div>
                     <div class="flip-overlay"></div>
                 </div>
-                <div class='square2' style="background-image: url('http://titanicthemes.com/files/flipbox/kallyas-bundle.png');">
+                <div class='square2' style="background-color: #1e40af;">
                     <div class="square-container2">
-                        <div class="align-center"></div>
-                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-700">
-                            <li><strong>Frontend:</strong> HTML5, CSS3 (Tailwind CSS for utility-first styling)</li>
-                            <li><strong>Mapping Library:</strong> Leaflet.js (lightweight, open-source JavaScript library)</li>
-                            <li><strong>Routing & Geocoding:</strong> Open Source Routing Machine (OSRM) and Nominatim (OpenStreetMap's geocoder) for directions and address lookup.</li>
-                            <li><strong>Font:</strong> Inter (for clean and modern typography).</li>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Our Technology</h2>
+                        <ul class="list-disc list-inside space-y-2 pl-4 text-white text-left">
+                            <li><strong>Frontend:</strong> HTML5, CSS3, Tailwind CSS</li>
+                            <li><strong>Mapping:</strong> Leaflet.js</li>
+                            <li><strong>Routing:</strong> OSRM & Nominatim</li>
+                            <li><strong>Font:</strong> Inter & Open Sans</li>
                         </ul>
                     </div>
                     <div class="flip-overlay"></div>
                 </div>
             </div>
 
+            <!-- Team Card -->
             <div class="square-flip">
-                <div class='square' style="background-image: url('https://instagram.fotp3-2.fna.fbcdn.net/t51.2885-15/e35/14712096_386502691740262_2357154798815412224_n.jpg?ig_cache_key=MTM2NzU2MzUwNjQ3OTUzOTgxNQ%3D%3D.2');">
+                <div class='square' style="background-image: url;">
                     <div class="square-container">
-                        <div class="align-center"><img src="AW1.PNG" class="boxshadow" alt="Our Team"></div>
+                        <div class="align-center"><img src="AW1.PNG" class="boxshadow" alt="Our Team Icon" width="80"></div>
                         <h2 class="textshadow">Our Team GROUP_F_4</h2>
-                        <h3 class="textshadow">This project was developed as part of a university coursework to demonstrate practical application of web development and mapping technologies. The team is dedicated to continuous improvement and enhancing the usability of the app.</h3>
+                        <h3 class="textshadow">Dedicated to continuous improvement and usability.</h3>
                     </div>
                     <div class="flip-overlay"></div>
                 </div>
-                <div class='square2' style="background-image: url('http://titanicthemes.com/files/flipbox/kallyas-wedding.jpg');">
+                <div class='square2' style="background-color: #4338ca;">
                     <div class="square-container2">
-                        <div class="align-center"></div>
-                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-700">
-                            <li><strong>Agbeve Cyril Prince :</strong> ID:1701864653</li>
-                            <li><strong>Sedoame Kofi Ahorlu :</strong> ID:1704464006</li>
-                            <li><strong>Vordzorgbe Saviour :</strong> ID:1696328520</li>
-                            <li><strong>Henry Aboagye :</strong> ID:4231231150</li>
-                            <li><strong>Gideon Opoku :</strong> ID:2425420084</li>
+                        <h2 class="text-2xl font-semibold text-white mb-4">Team Members</h2>
+                        <ul class="list-disc list-inside space-y-2 pl-4 text-white text-left">
+                            <li><strong>Agbeve Cyril Prince:</strong> ID: 1701864653</li>
+                            <li><strong>Sedoame Kofi Ahorlu:</strong> ID: 1704464006</li>
+                            <li><strong>Vordzorgbe Saviour:</strong> ID: 1696328520</li>
+                            <li><strong>Henry Aboagye:</strong> ID: 4231231150</li>
+                            <li><strong>Gideon Opoku:</strong> ID: 2425420084</li>
                         </ul>
                     </div>
                     <div class="flip-overlay"></div>
@@ -104,7 +108,7 @@
             </div>
             
             <div class="clearfix"></div>
-            <p class="mt-6 text-base text-gray-600 italic">Thank you for using Campus Navigator!</p>
+            <p class="mt-6 text-base text-gray-600 italic text-center">Thank you for using Campus Navigator!</p>
         </section>
     </main>
 
