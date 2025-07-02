@@ -1,295 +1,277 @@
-
 body {
-  height: 100vh;
   margin: 0;
-  display: grid;
-  place-content: center;
+  /* Removed height: 100vh; to allow content to flow */
+  display: flex; /* Use flexbox for overall layout */
+  flex-direction: column; /* Stack header, main, footer vertically */
+  min-height: 100vh; /* Ensure body takes at least full viewport height */
 }
+
 h1 {
   font-family: system-ui, sans-serif;
-  font-size: 5rem;
+  font-size: clamp(2rem, 5vw + 1rem, 5rem); /* Responsive font size */
   cursor: pointer;
 }
  
- .prose{
-position: relative;
-place-content: center;
-font-size: large;
-font-family: 'Times New Roman', Times, serif;
-padding-left: 5rem;
-
+.prose {
+  position: relative;
+  /* place-content: center; Removed for natural flow */
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 2rem 1rem; /* Adjust padding for mobile */
+  text-align: center; /* Center align text for better readability */
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; Removed to allow content to flow */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
- }
+}
+
+@media (min-width: 768px) { /* Apply larger padding on medium screens and up */
+  .prose {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
 .prose:hover {
   font-variation-settings: "wght" 582; 
   letter-spacing: 1px;
 }
 
+/* Flip Card Styles */
+.square-flip {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
 
+  -webkit-transform: perspective(1000px);
+  -moz-transform: perspective(1000px);
+  -ms-transform: perspective(1000px);
+  transform: perspective(1000px);
 
+  -webkit-transform-style: preserve-3d; 
+  -moz-transform-style: preserve-3d; 
+  -ms-transform-style: preserve-3d; 
+  transform-style: preserve-3d; 
+  
+  position: relative;
+  /* float: flex; Removed */
+  margin: 20px;
+  width: 100%; /* Make width responsive */
+  max-width: 400px; /* Max width for larger screens */
+  height: 300px; /* Fixed height, consider responsive height */
+}
 
- .square-flip{
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -ms-perspective: 1000;
-    perspective: 1000;
+/* Adjust height for smaller screens if needed */
+@media (max-width: 640px) {
+  .square-flip {
+    height: 250px; /* Slightly smaller height on small screens */
+  }
+}
 
-    -webkit-transform: perspective(1000px);
-    -moz-transform: perspective(1000px);
-    -ms-transform: perspective(1000px);
-    transform: perspective(1000px);
+.square, .square2 {
+  width: 100%;
+  height: 100%;
+}
 
-    -webkit-transform-style: preserve-3d; 
-    -moz-transform-style: preserve-3d; 
-    -ms-transform-style: preserve-3d; 
-    transform-style: preserve-3d; 
+.square {
+  background-size: cover;
+  background-position: center center;
+  transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+  -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
 
-    /*border:1px solid #efefef;*/
-    
-    position:relative;
-    float:flex;
-    margin:20px;
+.square-flip .square {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  z-index: 1;
+}
 
-    }
-    .square-flip{
-      width:400px;
-      height:400px;
-    }
-    .square,.square2{
-      width:100%;
-      height:100%;
-    }
-    .square{
+.square-flip:hover .square {
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform-style: preserve-3d;
+}
 
-      background-size: cover;
-      background-position:center center;
+.square2 {
+  background-size: cover;
+  background-position: center center;
+  transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+  -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
 
-      -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-          transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-          -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-      overflow: hidden;
+.square-flip .square2 {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  z-index: 1;
+}
 
-      position:absolute;
-      top:0;
+.square-flip:hover .square2 {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transform-style: preserve-3d;
+}
 
+/* Square content */
+.square-container, .square-container2 {
+  padding: 20px; /* Reduced padding for smaller screens */
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+  -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+  transform: translateY(-50%) scale(1); /* Simplified initial transform */
+  -webkit-transform: translateY(-50%) scale(1);
+  transform-style: preserve-3d;
+  z-index: 2;
+}
 
-      -webkit-backface-visibility: hidden; 
-      backface-visibility: hidden;
-    }
-    .square-flip .square{
-      -webkit-transform: rotateY(0deg);
-      -moz-transform: rotateY(0deg);
-      -o-transform: rotateY(0deg);
-      -ms-transform: rotateY(0deg);
-      transform: rotateY(0deg);
-      transform-style: preserve-3d;
-      z-index:1;
-    }
-    .square-flip:hover .square{
-      -webkit-transform: rotateY(-180deg);
-      -moz-transform: rotateY(-180deg);
-      -o-transform: rotateY(-180deg);
-      -ms-transform: rotateY(-180deg);
-      transform: rotateY(-180deg);
-      transform-style: preserve-3d;
-    }
+.square-flip:hover .square-container {
+  transform: translateY(-50%) scale(0.88); /* Simplified hover transform */
+  -webkit-transform: translateY(-50%) scale(0.88);
+  transform-style: preserve-3d;
+}
 
+.square-container2 {
+  transform: translateY(-50%) scale(0.88); /* Simplified initial transform for back */
+  -webkit-transform: translateY(-50%) scale(0.88);
+}
 
-    .square2{
+.square-flip:hover .square-container2 {
+  transform: translateY(-50%) scale(1); /* Simplified hover transform for back */
+  -webkit-transform: translateY(-50%) scale(1);
+  transform-style: preserve-3d;
+}
 
-      background-size: cover;
-      background-position:center center;
+/* Style text */
+.square-flip h2 {
+  color: white;
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: clamp(1rem, 3vw + 0.5rem, 22px); /* Responsive font size */
+}
 
-      -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-          transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-          -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-      overflow: hidden;
+.square-flip h3 {
+  color: white;
+  font-family: "Open Sans";
+  font-weight: 500;
+  font-size: clamp(0.8rem, 2.5vw + 0.5rem, 16px); /* Responsive font size */
+  line-height: 1.5;
+}
 
-      position:absolute;
-      top:0;
+/* Elements */
+.flip-overlay {
+  display: block;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
 
-      -webkit-backface-visibility: hidden; 
-      backface-visibility: hidden;
-    }
-    .square-flip .square2{
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
-      -ms-transform: rotateY(180deg);
-      transform: rotateY(180deg);
-      transform-style: preserve-3d;
-      z-index:1;
-    }
-    .square-flip:hover .square2{
-      -webkit-transform: rotateY(0deg);
-      -moz-transform: rotateY(0deg);
-      -o-transform: rotateY(0deg);
-      -ms-transform: rotateY(0deg);
-      transform: rotateY(0deg);
-      transform-style: preserve-3d;
-    }
+.align-center {
+  margin: 0 auto;
+}
 
-    /*Square content*/
-    .square-container{
-      padding:40px;
-      text-align:center;
-      position:relative;
-      top:50%;
+.kallyas-button {
+  display: block;
+  width: 160px;
+  padding: 18px 30px;
+  font-family: "Open Sans";
+  font-weight: 600;
+  color: #fff;
+  background: #FF2024;
+  margin: 0 auto;
+  border-radius: 2px;
+  text-decoration: none;
 
-      -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-          transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-          -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+  background: #ffa067;
+  background: -moz-linear-gradient(-45deg,  #ffa067 0%, #ff2959 49%, #ff2024 100%);
+  background: -webkit-linear-gradient(-45deg,  #ffa067 0%,#ff2959 49%,#ff2024 100%);
+  background: linear-gradient(135deg,  #ffa067 0%,#ff2959 49%,#ff2024 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa067', endColorstr='#ff2024',GradientType=1 );
+}
 
-    
-      -webkit-transform: translateY(-50%) translateX(0px)  scale(1);
-      -ms-transform: translateY(-50%) translateX(0px)  scale(1);
-  transform: translateY(-50%) translateX(0px)  scale(1);
-      transform-style: preserve-3d;
-      z-index:2;
-    }
-    .square-flip:hover .square-container{
-      
-      -webkit-transform: translateY(-50%) translateX(-650px)  scale(.88);
-      -ms-transform: translateY(-50%) translateX(-650px)  scale(.88);
-      transform: translateY(-50%) translateX(-650px)  scale(.88);
-      transform-style: preserve-3d;
+/* ADD SHADOWS OPTIONAL - Adjusted for potentially better performance */
+.square-flip .square .boxshadow, 
+.square-flip .square .textshadow, 
+.square-flip .square2 .boxshadow, 
+.square-flip .square2 .textshadow {
+  transition: 0.60s;
+  -webkit-transition: 0.60s;
+}
 
-    }
+.square-flip .square .boxshadow {
+  box-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3); /* Smaller initial shadow */
+  -webkit-box-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3);
+  -moz-box-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3);
+}
 
-    .square-container2{
-      padding:40px;
-      text-align:center;
-      position:relative;
-      top:50%;
+.square-flip .square .textshadow {
+  text-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3); /* Smaller initial shadow */
+  -webkit-text-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3);
+  -moz-text-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3);
+}
 
-      -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-          transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
-          -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+.square-flip:hover .square .boxshadow, 
+.square-flip:hover .square .textshadow {
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0); /* Disappear on hover */
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+}
 
-      
-      -webkit-transform: translateY(-50%) translateX(650px) translateZ(60px) scale(.88);
-      -ms-transform: translateY(-50%) translateX(650px) translateZ(60px) scale(.88);
-      transform: translateY(-50%) translateX(650px) translateZ(60px) scale(.88);
+.square-flip .square2 .boxshadow {
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0); /* Disappear initially */
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+}
 
-      transform-style: preserve-3d;
-      z-index:2;
-    }
-    .square-flip:hover .square-container2{
-      
-      -webkit-transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
-      -ms-transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
-      transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
-      transform-style: preserve-3d;
-    }
+.square-flip .square2 .textshadow {
+  text-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0); /* Disappear initially */
+  -webkit-text-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+  -moz-text-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+}
 
+.square-flip:hover .square2 .boxshadow, 
+.square-flip:hover .square2 .textshadow {
+  box-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3); /* Appear on hover */
+  -webkit-box-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3);
+  -moz-box-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3);
+}
 
+/* Center flip cards for responsiveness */
+.centerflipcards {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: center; /* Center cards horizontally */
+  gap: 20px; /* Space between cards */
+  padding: 20px; /* Add padding around the card container */
+  width: 100%; /* Full width */
+  max-width: 1330px; /* Limit max width */
+  margin: 25px auto 0 auto; /* Center the container and add top margin */
+}
 
-    /*Style text*/
-    .square-flip h2{
-      color:white;
-      font-family: "Open Sans";
-      font-weight:700;
-      font-size:22px;
-    }
-    .square-flip h3{
-      color:white;
-      font-family: "Open Sans";
-      font-weight:500;
-      font-size:16px;
-      line-height:26px;
-    }
-    /*Elements*/
-    .flip-overlay{
-      display:block;
-      background:rgba(0,0,0,0.5);
-      width:100%;
-      height:100%;
-      position:absolute;
-      top:0;
-    }
-    .align-center{
-      margin:0 auto;
-    }
-    .kallyas-button{
-      display:block;
-      width:160px;
-      padding:18px 30px;
-      font-family:"Open Sans";
-      font-weight:600;
-      color:#fff;
-      background:#FF2024;
-      margin:0 auto;
-      border-radius:2px;
-      text-decoration:none;
+.clearfix {
+  clear: both;
+}
 
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffa067+0,ff2959+49,ff2024+100 */
-      background: #ffa067; /* Old browsers */
-      background: -moz-linear-gradient(-45deg,  #ffa067 0%, #ff2959 49%, #ff2024 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(-45deg,  #ffa067 0%,#ff2959 49%,#ff2024 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(135deg,  #ffa067 0%,#ff2959 49%,#ff2024 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa067', endColorstr='#ff2024',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    }
-
-
-    /*ADD SHADOWS OPTIONAL*/
-    .square-flip .square .boxshadow, .square-flip .square .textshadow, .square-flip .square2 .boxshadow, .square-flip .square2 .textshadow{
-      -ms-transition: 0.60s;
-          transition: 0.60s;
-          -webkit-transition: 0.60s;
-    }
-
-    .square-flip .square .boxshadow{
-      -webkit-box-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-      -moz-box-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-      box-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-    }
-    .square-flip .square .textshadow{
-      -webkit-text-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-      -moz-text-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-      text-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-    }
-    .square-flip:hover .square .boxshadow, .square-flip:hover .square .textshadow{
-      -webkit-box-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-      -moz-box-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-      box-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-    }
-
-
-    .square-flip .square2 .boxshadow{
-      -webkit-box-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-      -moz-box-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-      box-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-    }
-    .square-flip .square2 .textshadow{
-      -webkit-text-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-      -moz-text-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-      text-shadow: 240px 42px 58px -8px rgba(0,0,0,0.0);
-    }
-    .square-flip:hover .square2 .boxshadow, .square-flip:hover .square2 .textshadow{
-      -webkit-box-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-      -moz-box-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-      box-shadow: 24px 42px 58px -8px rgba(0,0,0,0.3);
-    }
-
-    
-    /*You can delete this style*/
-    .centerflipcards{
-      display:block;
-      width:1330px;
-      height:440px;
-      text-align:center;
-      margin:0 auto;
-      margin-top:25px;
-    }
-.clearfix{clear:both;}
-.centerflipcards p{
-      font-family:"Open Sans";
-      font-size:13px;
-      margin-top:10px;
-      font-weight:700;
+.centerflipcards p {
+  font-family: "Open Sans";
+  font-size: 13px;
+  margin-top: 10px;
+  font-weight: 700;
 }
